@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 
+
 class RegisterController extends Controller
 {
     /*
@@ -37,6 +38,14 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    public function registervaridate(Request $request){
+        $request->validate([
+                'username' => 'required|min:2|max:12',
+                'mail' => 'required|unique:users,username|email:rfc|min:5|max:40',
+                'password' => 'required|confirmed|alpha_num|min:8|max:20',
+            ]);
     }
 
     public function register(Request $request){

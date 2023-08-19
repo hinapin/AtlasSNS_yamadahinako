@@ -1,8 +1,22 @@
 @extends('layouts.logout')
 
 @section('content')
+
+<!-- ↓バリデーションのエラーメッセージを画面で見れるように -->
+
+@if ($errors->any())
+<div>
+  <ul>
+    @foreach ($errors->all() as $error)
+    <li>{{ $error }}</li>
+    @endforeach
+  </ul>
+</div>
+@endif
+
+
 <!-- 適切なURLを入力してください -->
-{!! Form::open(['url' => '/〇〇']) !!}
+{!! Form::open(['url' => '/register']) !!}
 
 <h2>新規ユーザー登録</h2>
 
