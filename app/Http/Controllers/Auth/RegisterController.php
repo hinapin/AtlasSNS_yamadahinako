@@ -40,14 +40,6 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    public function registervaridate(Request $request){
-        $request->validate([
-                'username' => 'required|min:2|max:12',
-                'mail' => 'required|unique:users,username|email:rfc|min:5|max:40',
-                'password' => 'required|confirmed|alpha_num|min:8|max:20',
-            ]);
-    }
-
     public function register(Request $request){
         if($request->isMethod('post')){
 
@@ -55,11 +47,23 @@ class RegisterController extends Controller
             $mail = $request->input('mail');
             $password = $request->input('password');
 
+            // ↓バリデーションをする
+            $request->validate([
+                'username' => 'required|min:2|max:12',
+                'mail' => 'required|unique:users|email:rfc|min:5|max:40',
+                'password' => 'required|confirmed|alpha_num|min:8|max:20',
+            ]);
+
+            // ↓登録していくコード
+
             User::create([
                 'username' => $username,
                 'mail' => $mail,
                 'password' => bcrypt($password),
             ]);
+
+            // ↓セッションでadd.blade.phpに値を送る
+            $request->session()->put('username',$username);
 
             return redirect('added');
         }

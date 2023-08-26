@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -38,6 +38,9 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+//  　　　　　　　　　　　　　 ↑guestという定義はkernel.phpで定義されている
+
+
 
     public function login(Request $request){
         if($request->isMethod('post')){

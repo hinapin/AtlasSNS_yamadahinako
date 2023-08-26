@@ -25,19 +25,30 @@ Route::post('/login', 'Auth\LoginController@login');
 
 Route::get('/register', 'Auth\RegisterController@register');
 Route::post('/register', 'Auth\RegisterController@register');
-Route::post('/register', 'Auth\RegisterController@registervaridate');
 
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
 
 //ログイン中のページ
-Route::post('/top','PostsController@index');
+
+// ↓このauthというミドルウェアは、ユーザがログインしているかどうかを確認できるミドルウェア
+//  ログインしていたらルーティング通りの処理、していなければログインページに飛ぶ
+
+Route::group(['middleware' => 'auth'], function(){
+
+// トップページへ
+ Route::post('/top','PostsController@index');
+ Route::get('/top','PostsController@index');
+
+// プロフィール編集へ
+ Route::get('/profile','UsersController@profile');
+
+// ユーザー検索ページへ
+ Route::get('/search','UsersController@index');
 
 
-Route::get('/profile','UsersController@profile');
+ Route::get('/follow-list','PostsController@index');
+ Route::get('/follower-list','PostsController@index');
 
-Route::get('/search','UsersController@index');
-
-Route::get('/follow-list','PostsController@index');
-Route::get('/follower-list','PostsController@index');
+});
