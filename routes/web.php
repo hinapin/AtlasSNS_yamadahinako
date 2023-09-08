@@ -20,8 +20,8 @@
 
 
 //ログアウト中のページ
-Route::get('/login', 'Auth\LoginController@login');
-Route::post('/login', 'Auth\LoginController@login');
+Route::get('/login', 'Auth\LoginController@login')->name('login');
+Route::post('/login', 'Auth\LoginController@login')->name('login');
 
 Route::get('/register', 'Auth\RegisterController@register');
 Route::post('/register', 'Auth\RegisterController@register');
@@ -41,6 +41,7 @@ Route::group(['middleware' => 'auth'], function(){
  Route::post('/top','PostsController@index');
  Route::get('/top','PostsController@index');
 
+
 // プロフィール編集へ
  Route::get('/profile','UsersController@profile');
 
@@ -50,5 +51,10 @@ Route::group(['middleware' => 'auth'], function(){
 
  Route::get('/follow-list','PostsController@index');
  Route::get('/follower-list','PostsController@index');
+
+
+//  ログアウトする
+ Route::get('/logout','Auth\LoginController@logout');
+
 
 });

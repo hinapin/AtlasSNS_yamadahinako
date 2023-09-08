@@ -37,8 +37,11 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+
     }
 //  　　　　　　　　　　　　　 ↑guestという定義はkernel.phpで定義されている
+
+
 
 
 
@@ -53,5 +56,10 @@ class LoginController extends Controller
             }
         }
         return view("auth.login");
+    }
+
+    protected function logout(){
+        Auth::logout();
+        return redirect() -> route('login');
     }
 }
