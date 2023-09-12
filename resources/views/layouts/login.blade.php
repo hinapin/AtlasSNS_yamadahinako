@@ -22,29 +22,25 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a><img src="images/logo.png"></a></h1>
-            <div id="">
+            <h1><a><img src="/images/logo.png"></a></h1>
+
+            <div id="accordion" class="accordion-container">
                 <div id="">
                     <p> {{  Auth::user()->username }}さん<img src="images/icon1.png"></p>
                 <div>
 
-
-
-               <button type="button" class="menu-btn">
-                <span class="inn"></span>
-               </button>
-
                 <div class="menu-list">
-                  <ul>
+                 <div class="menu-btn">あああ</div>
+                  <ul class="menu">
                     <li><a class="home" href="/top">HOME</a></li>
                     <li><a class="profile" href="/profile">プロフィール編集</a></li>
                     <li><a class="logout" href="/logout">ログアウト</a></li>
                   </ul>
                 </div>
-
             </div>
         </div>
     </header>
+
     <div id="row">
         <div id="container">
             @yield('content')
@@ -56,19 +52,19 @@
                 <p>フォロー数</p>
                 <p>〇〇名</p>
                 </div>
-                <p class="btn"><a href="">フォローリスト</a></p>
+                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
                 <p>〇〇名</p>
                 </div>
-                <p class="btn"><a href="">フォロワーリスト</a></p>
+                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="">ユーザー検索</a></p>
+            <p class="btn"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>
     </footer>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="{{ asset('/js/script.js') }}"></script>
 </body>
 </html>
