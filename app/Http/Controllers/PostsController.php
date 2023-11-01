@@ -3,12 +3,57 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
+use App\User;
+use Auth;
+
+
 
 class PostsController extends Controller
 {
-    //
-    public function index(){
-        return view('posts.index');
+    ///画面に表示させる
+    public function index(Request $request){
+         $list = Auth::user();
+        // $list = Post::get(); // Postテーブルから情報を拾う
+         $list = Post::orderBy('created_at','desc')->get();  //  登録された順に並び替えて取り出す
+        return view('posts.index',['list'=> $list]);
     }
+
+
+    public function posting(Request $request){
+
+        // バリデーションをする
+
+        $request->validate([
+            'new-post' => 'required|unique:posts,post|min:1|max:150',
+        ]);
+
+        // dd($request);
+        $post = $request->input('new-post');
+        $user_id = Auth::id();// 誰のつぶやきかわかるように
+
+        Post::create([
+            'user_id' => $user_id,
+            'post' => $post,
+        ]);
+
+        return redirect('/top');
+    }
+
+
+    // つぶやきを更新する
+    public function update(Request $request){
+
+        $user_id = Auth::id();
+        $up_post = $request->input('upPost');
+
+        Post::where('user_id', $user_id)->update([
+            'post' => $up_post,
+        ]);
+
+        return redirect('/top');
+
+    }
+
 
 }

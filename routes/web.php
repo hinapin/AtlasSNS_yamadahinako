@@ -38,12 +38,17 @@ Route::post('/added', 'Auth\RegisterController@added');
 Route::group(['middleware' => 'auth'], function(){
 
 // トップページへ
- Route::post('/top','PostsController@index');
  Route::get('/top','PostsController@index');
+//  Route::post('/top','PostsController@index');
+ Route::post('/top','PostsController@posting');
+ Route::post('/post/{id}/update','PostsController@update');
 
 
 // プロフィール編集へ
  Route::get('/profile','UsersController@profile');
+ Route::get('/profile/update','UsersController@updateProfile')->name('profile.updated');
+ Route::post('/profile/update','UsersController@updateProfile')->name('profile.updated');
+
 
 // ユーザー検索ページへ
  Route::get('/search','UsersController@search');
@@ -55,6 +60,7 @@ Route::group(['middleware' => 'auth'], function(){
 
 //  ログアウトする
  Route::get('/logout','Auth\LoginController@logout');
+
 
 
 });

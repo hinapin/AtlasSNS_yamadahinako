@@ -8,6 +8,9 @@
   <title></title>
   <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
   <link rel="stylesheet" href="{{ asset('css/logout.css') }} ">
+  <!-- bootstrapの追加↓ -->
+  <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+  <script src="{{ asset('js/bootstrap.bundle.min.js') }}" ></script>
   <!--スマホ,タブレット対応-->
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <!--サイトのアイコン指定-->
@@ -21,8 +24,8 @@
 </head>
 <body>
   <header>
-    <h1><a href="/top"><img src="images/atlas.png"></a></h1>
-    <p>Social Network Service</p>
+    <h1><a href="/top"><img src="images/atlas.png" class="atlas-logo" ></a></h1>
+    <p class="phrase">Social Network Service</p>
   </header>
   <div id="container">
     @yield('content')

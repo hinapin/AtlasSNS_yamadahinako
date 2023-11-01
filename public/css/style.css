@@ -2,28 +2,121 @@
 
 html {}
 
-body {}
+body {
+    margin: 0;
+    padding: 0;
+
+}
 
 /* header */
 header {
     background: #186AC9;
+    width: 100%;
+    height: 80px;
+    position: relative;
 }
+
+#head {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    right: 0%;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+#header-container {
+    margin-left: auto;
+    display: flex;
+}
+
+img.atlas-logo {
+    width: 140px;
+    position: relative;
+    padding: 18px;
+}
+
+
+
+
 
 
 /* アコーディオンメニュー */
 
+.menu-list {
+
+    width: max-content;
+    position: absolute;
+    /* right: 0px; */
+}
+
 .menu-btn {
+    background-color: #186AC9;
+    color: #ffffff;
+    position: relative;
     background-color: #186AC9;
 }
 
 
 .menu {
     display: none;
+    position: absolute;
+    width: max-content;
+}
+
+.accordion-menu {
+    background-color: #ffffff;
+    display: block;
+    border: 1px solid #186AC9;
+    padding: 20px;
+    font-size: larger;
+    color: #727272;
+    font-weight: lighter;
+    text-align: center;
+    text-decoration: none;
+}
+
+img.profile-image {
+    width: 50px;
+    height: 50px;
 }
 
 
 
+
 /* main content */
+
+/* 投稿機能 */
+
+.form-container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    margin: 20px 40px 20px 10px;
+    gap: 10px;
+    right: 10px;
+}
+
+.post-form {
+    border: none;
+    font-size: 15px;
+    width: 70%;
+    height: 120px;
+}
+
+img.submit-btn {
+    width: 70px;
+    position: relative;
+    padding: 18px;
+    border-radius: 20px;
+    margin-left: 10px;
+    top: 50px;
+}
+
+
+
 #row {
     display: flex;
     flex-flow: row wrap;
@@ -36,4 +129,96 @@ header {
 #side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
+    text-align: right;
+}
+
+.edit-container {
+    width: 660px;
+    height: 270px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    position: relative;
+    visibility: hidden;
+}
+
+.edit-container.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+button {
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+button img {
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+.edit-form {
+    width: 600px;
+    height: 200px;
+    background: #ffffff;
+    left: 30px;
+    padding: 30px;
+    margin: 10px 30px 20px 30px;
+}
+
+.edit-close {
+    position: absolute;
+    display: block;
+    top: 190px;
+}
+
+/* サイドバー */
+
+
+.content {
+    font-size: medium;
+}
+
+
+/* ユーザー検索 */
+
+.search-user {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+}
+
+.username {
+    width: 250px;
+    height: 40px;
+}
+
+img.search-btn {
+    width: 80px;
+    position: relative;
+    padding: 18px;
+    border-radius: 23px;
+    margin-left: auto;
+}
+
+
+/* プロフィール編集画面 */
+
+/* .update-container {
+    position: relative; */
+/* } */
+
+img.update-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.input {
+    display: block;
+}
+
+label {
+    /* text-align: center; */
 }

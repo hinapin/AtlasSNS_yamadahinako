@@ -8,6 +8,9 @@
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
+    <!-- bootstrapの追加↓ -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}" ></script>
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -21,21 +24,21 @@
 </head>
 <body>
     <header>
-        <div id = "head">
-            <h1><a><img src="/images/logo.png"></a></h1>
+        <div id ="head">
+            <h1><a href="{{ URL::to('/top') }}"><img src="{{ asset('/images/atlas.png')}}" class="atlas-logo"></a></h1>
 
-            <div id="accordion" class="accordion-container">
-                <div id="">
-                    <p> {{  Auth::user()->username }}さん<img src="images/icon1.png"></p>
+            <div id="header-container" >
+                <div id="login-name">
+                    <p> {{  Auth::user()->username }}さん<img src="{{ asset('/images/icon1.png') }}" class="profile-image"></p>
                 <div>
 
                 <div class="menu-list">
-                 <div class="menu-btn">あああ</div>
-                  <ul class="menu">
-                    <li><a class="home" href="/top">HOME</a></li>
-                    <li><a class="profile" href="/profile">プロフィール編集</a></li>
-                    <li><a class="logout" href="/logout">ログアウト</a></li>
-                  </ul>
+                <div class="menu-btn">////</div>
+                    <ul class="menu">
+                        <li><a class="accordion-menu" href="/top">HOME</a></li>
+                        <li><a class="accordion-menu" href="/profile">プロフィール編集</a></li>
+                        <li><a class="accordion-menu" href="/logout">ログアウト</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -44,7 +47,13 @@
     <div id="row">
         <div id="container">
             @yield('content')
+
+            <!-- <form>
+                <input name="post" placeholder="投稿内容を入力してください。" >
+            </form> -->
+
         </div >
+
         <div id="side-bar">
             <div id="confirm">
                 <p>{{  Auth::user()->username }}さんの</p>
@@ -52,14 +61,14 @@
                 <p>フォロー数</p>
                 <p>〇〇名</p>
                 </div>
-                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
+                <a class="btn btn-primary" href="/follow-list" role="button">フォローリスト</a>
                 <div>
                 <p>フォロワー数</p>
                 <p>〇〇名</p>
                 </div>
-                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
+                <a class="btn btn-primary" href="/follower-list" role="button">フォロワーリスト</a>
             </div>
-            <p class="btn"><a href="/search">ユーザー検索</a></p>
+            <a class="btn btn-primary" href="/search" role="button">ユーザー検索</a>
         </div>
     </div>
     <footer>
