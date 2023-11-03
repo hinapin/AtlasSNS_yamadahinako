@@ -41,7 +41,7 @@ Route::group(['middleware' => 'auth'], function(){
  Route::get('/top','PostsController@index');
 //  Route::post('/top','PostsController@index');
  Route::post('/top','PostsController@posting');
- Route::post('/post/{id}/update','PostsController@update');
+ Route::post('/post/update','PostsController@update');
 
 
 // プロフィール編集へ

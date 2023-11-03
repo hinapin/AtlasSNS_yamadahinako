@@ -44,10 +44,11 @@ class PostsController extends Controller
     // つぶやきを更新する
     public function update(Request $request){
 
-        $user_id = Auth::id();
+        $id = $request->input('post-id');
         $up_post = $request->input('upPost');
+        // dd($up_post);
 
-        Post::where('user_id', $user_id)->update([
+        Post::where('id', $id)->update([
             'post' => $up_post,
         ]);
 

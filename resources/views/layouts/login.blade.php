@@ -27,18 +27,18 @@
         <div id ="head">
             <h1><a href="{{ URL::to('/top') }}"><img src="{{ asset('/images/atlas.png')}}" class="atlas-logo"></a></h1>
 
-            <div id="header-container" >
-                <div id="login-name">
-                    <p> {{  Auth::user()->username }}さん<img src="{{ asset('/images/icon1.png') }}" class="profile-image"></p>
-                <div>
-
-                <div class="menu-list">
-                <div class="menu-btn">////</div>
-                    <ul class="menu">
-                        <li><a class="accordion-menu" href="/top">HOME</a></li>
-                        <li><a class="accordion-menu" href="/profile">プロフィール編集</a></li>
-                        <li><a class="accordion-menu" href="/logout">ログアウト</a></li>
-                    </ul>
+            <div id="header-container">
+                <div class="yyy">
+                    <div id="login-name"><p>{{ Auth::user()->username }}さん</p><div>
+                    <div class="menu-list">
+                        <btn class="menu-btn">////</btn>
+                            <ul class="menu">
+                                <li><a class="accordion-menu" href="/top">HOME</a></li>
+                                <li><a class="accordion-menu" href="/profile">プロフィール編集</a></li>
+                                <li><a class="accordion-menu" href="/logout">ログアウト</a></li>
+                            </ul>
+                    </div>
+                    <div><img src="{{ asset('/images/icon1.png') }}" class="profile-image"></div>
                 </div>
             </div>
         </div>
@@ -68,6 +68,7 @@
                 </div>
                 <a class="btn btn-primary" href="/follower-list" role="button">フォロワーリスト</a>
             </div>
+             <div class="b-color1"></div>
             <a class="btn btn-primary" href="/search" role="button">ユーザー検索</a>
         </div>
     </div>

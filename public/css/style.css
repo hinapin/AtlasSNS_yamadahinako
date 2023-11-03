@@ -29,6 +29,11 @@ header {
 #header-container {
     margin-left: auto;
     display: flex;
+
+}
+
+.yyy {
+    display: flex;
 }
 
 img.atlas-logo {
@@ -54,8 +59,7 @@ img.atlas-logo {
 .menu-btn {
     background-color: #186AC9;
     color: #ffffff;
-    position: relative;
-    background-color: #186AC9;
+    /* position: relative; */
 }
 
 
@@ -82,7 +86,18 @@ img.profile-image {
     height: 50px;
 }
 
+/* サイドバー */
 
+#side-bar {
+    flex: 0 0 19%;
+    border-left: 1px solid #727272;
+    text-align: right;
+}
+
+#confirm {
+    text-align: left;
+    margin: 20px;
+}
 
 
 /* main content */
@@ -115,6 +130,19 @@ img.submit-btn {
     top: 50px;
 }
 
+div.b-color {
+    background-color: #727272;
+    width: auto;
+    height: 1.9px;
+    opacity: 50%;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.contents {
+    margin: 15px 30px 15px 60px;
+}
+
 
 
 #row {
@@ -126,13 +154,19 @@ img.submit-btn {
     flex: 0 0 80%;
 }
 
-#side-bar {
-    flex: 0 0 19%;
-    border-left: 1px solid #727272;
-    text-align: right;
+
+div.b-color1 {
+    background-color: #727272;
+    width: auto;
+    height: 0.8px;
+    opacity: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .edit-container {
+    top: -600px;
+    right: -236px;
     width: 660px;
     height: 270px;
     background-color: #ffffff;
@@ -158,6 +192,14 @@ button img {
     height: 40px;
 }
 
+.edit-btn {
+    margin-right: 5px;
+}
+
+.trash-btn {
+    margin-left: 5px;
+}
+
 .edit-form {
     width: 600px;
     height: 200px;
@@ -173,11 +215,31 @@ button img {
     top: 190px;
 }
 
-/* サイドバー */
-
+.create-time {
+    margin-left: auto;
+}
 
 .content {
     font-size: medium;
+}
+
+.v-post {
+    margin: 0 0 0 60px;
+    top: 50px;
+}
+
+.contents1 {
+    display: flex;
+}
+
+.contents2 {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+
 }
 
 
