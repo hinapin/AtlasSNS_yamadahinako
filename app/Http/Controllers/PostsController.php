@@ -44,9 +44,9 @@ class PostsController extends Controller
     // つぶやきを更新する
     public function update(Request $request){
 
-        $id = $request->input('post-id');
+        $id = $request->input('id');
         $up_post = $request->input('upPost');
-        // dd($up_post);
+        dd($up_post);
 
         Post::where('id', $id)->update([
             'post' => $up_post,

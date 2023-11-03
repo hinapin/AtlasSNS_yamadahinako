@@ -56,8 +56,8 @@
 
 {!! Form::open(['url' => '/post/update']) !!}
   <input type="text" name="upPost" class="edit-form"></input>
-  <input type="hidden" name="post_id" class="edit-id" value="">
-  <button type="submit" class="edit-close"><img src="images/edit.png"></button>
+  <input type="hidden" name="post-id" class="edit-id" value="">
+  <button type="submit" class="edit-close"><a href="/post/update"></a><img src="images/edit.png"></button>
 {!! Form::close() !!}
 </div>
 
