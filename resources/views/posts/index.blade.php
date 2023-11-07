@@ -40,7 +40,7 @@
 
         <div class="v-post"><td>{{ $list->post }}</td><br></div>
 
-      @if ($id == $list->id)
+      @if ($user_id == $list->id)
 
         <div class="contents2">
         <!-- 更新 -->
