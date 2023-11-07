@@ -40,10 +40,22 @@
 
         <div class="v-post"><td>{{ $list->post }}</td><br></div>
 
+      @if ($id == $list->id)
+
         <div class="contents2">
-          <button type="button" class="edit-btn"><img src="images/edit.png"></button>
-          <button type="submit" class="trash-btn"><img src="images/trash.png"></button>
+        <!-- 更新 -->
+          <button type="button" class="edit-btn" href="" post="{{ $list->post }}" post_id="{{ $list->id }}"><img src="images/edit.png"></button>
+
+        <!-- 削除 -->
+          <!-- <button type="submit" class="trash-btn" href="" post= "{{ $list->post }}" post_id="{{ $list->id }}" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')"></button> -->
+
+          <td><a class="trash-btn" href="/post/{{ $list->id }}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')"></a></td>
+        <!-- aタグによって別のページに移動する属性→href属性でその方向性を記述 -->
         </div>
+
+      @endif
+
+
         </div>
       <div class="b-color1"></div>
     </tr>
@@ -51,14 +63,18 @@
   @endforeach
 </div>
 
-<!-- 更新用 -->
+<!-- 更新用モーダル-->
 <div class="edit-container">
+  <div class="modal__bg edit-close"></div>
+  <div class="modal__content">
+    <form action="/post/update" method="post">
 
-{!! Form::open(['url' => '/post/update']) !!}
-  <input type="text" name="upPost" class="edit-form"></input>
-  <input type="hidden" name="post-id" class="edit-id" value="">
-  <button type="submit" class="edit-close"><a href="/post/update"></a><img src="images/edit.png"></button>
-{!! Form::close() !!}
+      <textarea name="upPost" class="modal_post"></textarea>
+      <input type="hidden" name="id" class="modal_id" value="">
+      <button type="submit" class="edit-close"><img src="images/edit.png"></button>
+      {{ csrf_field() }}
+    </form>
+  </div>
 </div>
 
 @endsection

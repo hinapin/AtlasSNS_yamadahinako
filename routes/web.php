@@ -41,8 +41,10 @@ Route::group(['middleware' => 'auth'], function(){
  Route::get('/top','PostsController@index');
 //  Route::post('/top','PostsController@index');
  Route::post('/top','PostsController@posting');
+//  つぶやきの編集
  Route::post('/post/update','PostsController@update');
-
+//  つぶやきの削除...パラメータを受け流す
+ Route::get('/post/{id}/delete','PostsController@delete');
 
 // プロフィール編集へ
  Route::get('/profile','UsersController@profile');

@@ -50,13 +50,13 @@ $(function () {
     var post = $(this).attr('post');
     // 押されたボタンから投稿のIDを取得し変数へ格納
     // （どの投稿を編集するか特定するために必要）
-    var user_id = $(this).attr('user_id');
+    var post_id = $(this).attr('post_id');
 
     // 取得した投稿内容,idをモーダルの中身へ渡す
-    $('.edit-form').text(post);
-    $('.post-id').val(user_id);
+    $('.modal_post').text(post);
+    $('.modal_id').val(post_id);
 
     return false;
 
-  })
-})
+  });
+});

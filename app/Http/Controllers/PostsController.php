@@ -17,6 +17,7 @@ class PostsController extends Controller
         // $list = Post::get(); // Postテーブルから情報を拾う
          $list = Post::orderBy('created_at','desc')->get();  //  登録された順に並び替えて取り出す
         return view('posts.index',['list'=> $list]);
+
     }
 
 
@@ -46,7 +47,10 @@ class PostsController extends Controller
 
         $id = $request->input('id');
         $up_post = $request->input('upPost');
-        dd($up_post);
+        $user_id = Auth::id();
+
+
+        // dd($up_post);
 
         Post::where('id', $id)->update([
             'post' => $up_post,
@@ -56,5 +60,12 @@ class PostsController extends Controller
 
     }
 
+    // つぶやきを削除する
+
+    public function delete($id){
+
+        Post::where('id',$id)->delete();
+        return redirect('/top');
+    }
 
 }

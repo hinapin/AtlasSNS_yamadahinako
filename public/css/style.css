@@ -198,9 +198,23 @@ button img {
 
 .trash-btn {
     margin-left: 5px;
+    width: 40px;
+    height: 40px;
+    background-image: url("../images/trash.png");
+    background-size: 40px;
 }
 
-.edit-form {
+.trash-btn:hover {
+    margin-left: 5px;
+    width: 40px;
+    height: 40px;
+    background-image: url("../images/trash-h.png");
+    background-size: 40px;
+    border-radius: 3px;
+}
+
+
+.modal_post {
     width: 600px;
     height: 200px;
     background: #ffffff;
