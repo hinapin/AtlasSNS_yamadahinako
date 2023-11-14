@@ -16,7 +16,10 @@ class PostsController extends Controller
          $list = Auth::user();
         // $list = Post::get(); // Postテーブルから情報を拾う
          $list = Post::orderBy('created_at','desc')->get();  //  登録された順に並び替えて取り出す
-        return view('posts.index',['list'=> $list]);
+         $user_id = Auth::id();
+
+        // 値をbladeに受け渡す記述
+        return view('posts.index',['list'=> $list , 'user_id' => $user_id]);
 
     }
 
@@ -47,7 +50,6 @@ class PostsController extends Controller
 
         $id = $request->input('id');
         $up_post = $request->input('upPost');
-        $user_id = Auth::id();
 
 
         // dd($up_post);

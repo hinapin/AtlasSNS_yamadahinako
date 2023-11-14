@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Article;
 
 class UsersController extends Controller
 {
@@ -33,6 +34,10 @@ class UsersController extends Controller
         ]);
 
         return redirect('/top');
+
+    }
+
+    public function search(){
 
     }
 }

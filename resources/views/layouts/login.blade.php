@@ -28,18 +28,15 @@
             <h1><a href="{{ URL::to('/top') }}"><img src="{{ asset('/images/atlas.png')}}" class="atlas-logo"></a></h1>
 
             <div id="header-container">
-                <div class="yyy">
-                    <div id="login-name"><p>{{ Auth::user()->username }}さん</p><div>
+                <div id="login-name"><p>{{ Auth::user()->username }}さん</p><div>
                     <div class="menu-list">
-                        <btn class="menu-btn">////</btn>
-                            <ul class="menu">
-                                <li><a class="accordion-menu" href="/top">HOME</a></li>
-                                <li><a class="accordion-menu" href="/profile">プロフィール編集</a></li>
-                                <li><a class="accordion-menu" href="/logout">ログアウト</a></li>
-                            </ul>
-                    </div>
+                    <btn class="menu-btn">////</btn>
+                        <ul class="menu">
+                            <li><a class="accordion-menu" href="/top">HOME</a></li>
+                            <li><a class="accordion-menu" href="/profile">プロフィール編集</a></li>
+                            <li><a class="accordion-menu" href="/logout">ログアウト</a></li>
+                        </ul>
                     <div><img src="{{ asset('/images/icon1.png') }}" class="profile-image"></div>
-                </div>
             </div>
         </div>
     </header>

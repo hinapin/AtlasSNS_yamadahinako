@@ -55,14 +55,11 @@ Route::group(['middleware' => 'auth'], function(){
 // ユーザー検索ページへ
  Route::get('/search','UsersController@search');
 
-
  Route::get('/follow-list','PostsController@index');
  Route::get('/follower-list','PostsController@index');
 
 
 //  ログアウトする
  Route::get('/logout','Auth\LoginController@logout');
-
-
 
 });
