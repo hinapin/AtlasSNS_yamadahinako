@@ -7,14 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     //投稿フォーム作成時に記入
+    // fillableは複数代入の脆弱性に対応するために必要
+
     protected $fillable = [
-        'post','user_id'
+        'user_id','post',
     ];
 
     // user_tableとリレーション
 
     public function user()
     {
-        return $this ->belongsTo('App\User');
+        return $this -> belongsTo('App\User');
     }
 }

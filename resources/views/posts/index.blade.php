@@ -6,7 +6,7 @@
 {{ Form::token()}}
 <div class="form-container">
 
-  <img src="{{ asset('/images/icon1.png') }}" class="profile-image">
+  <img src="{{ asset('storage/'.Auth::user()->images) }}" class="profile-image">
 
   {{ Form::text('new-post',null,['required', 'class' => 'post-form', 'placeholder' => '投稿内容を入力してください。']) }}
 
@@ -18,12 +18,7 @@
 
 
 
-
-
 {!! Form::close() !!}
-
-
-
 
 
 <div>
@@ -32,7 +27,7 @@
     <tr>
       <div class="contents">
         <div class="contents1">
-          <div><img src="{{ asset('/images/icon1.png') }}" class="profile-image"></div>
+          <div><img src="{{asset('storage/'.$list->user->images)}}" class="profile-image"></div>
           <div class="post-user"><td>{{ $list->user->username }}</td><br></div>
           <div class="create-time"><td>{{ $list->created_at }}</td><br></div>
           <!-- <td>{{ $list->user_id }}</td><br> -->

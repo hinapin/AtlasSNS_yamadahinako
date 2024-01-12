@@ -23,7 +23,7 @@ class PostsController extends Controller
 
     }
 
-
+    // つぶやき機能
     public function posting(Request $request){
 
         // バリデーションをする
@@ -32,7 +32,6 @@ class PostsController extends Controller
             'new-post' => 'required|unique:posts,post|min:1|max:150',
         ]);
 
-        // dd($request);
         $post = $request->input('new-post');
         $user_id = Auth::id();// 誰のつぶやきかわかるように
 

@@ -26,7 +26,6 @@
     <header>
         <div id ="head">
             <h1><a href="{{ URL::to('/top') }}"><img src="{{ asset('/images/atlas.png')}}" class="atlas-logo"></a></h1>
-
             <div id="header-container">
                 <div id="login-name"><p>{{ Auth::user()->username }}さん</p><div>
                     <div class="menu-list">
@@ -36,7 +35,7 @@
                             <li><a class="accordion-menu" href="/profile">プロフィール編集</a></li>
                             <li><a class="accordion-menu" href="/logout">ログアウト</a></li>
                         </ul>
-                    <div><img src="{{ asset('/images/icon1.png') }}" class="profile-image"></div>
+                    <div><img src="{{ asset('storage/'.Auth::user()->images) }}" class="profile-image"></div>
             </div>
         </div>
     </header>
@@ -65,7 +64,7 @@
                 </div>
                 <a class="btn btn-primary" href="/follower-list" role="button">フォロワーリスト</a>
             </div>
-             <div class="b-color1"></div>
+            <div class="b-color1"></div>
             <a class="btn btn-primary" href="/search" role="button">ユーザー検索</a>
         </div>
     </div>

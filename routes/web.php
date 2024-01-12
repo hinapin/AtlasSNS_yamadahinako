@@ -44,16 +44,21 @@ Route::group(['middleware' => 'auth'], function(){
 //  つぶやきの編集
  Route::post('/post/update','PostsController@update');
 //  つぶやきの削除...パラメータを受け流す
- Route::get('/post/{id}/delete','PostsController@delete');
+ Route::get('/post/{user_id}/delete','PostsController@delete');
 
 // プロフィール編集へ
  Route::get('/profile','UsersController@profile');
- Route::get('/profile/update','UsersController@updateProfile')->name('profile.updated');
- Route::post('/profile/update','UsersController@updateProfile')->name('profile.updated');
+ Route::get('/profile/update','UsersController@updateProfile');
+ Route::post('/profile/update','UsersController@updateProfile');
 
 
 // ユーザー検索ページへ
  Route::get('/search','UsersController@search');
+//  フォローする
+ Route::post('/users/{user}/follow','UsersController@follow')->name('follow');
+
+//  フォローを解除する
+ Route::post('/unfollow', 'FollowsController@unfollow')->name('unfollow');
 
  Route::get('/follow-list','PostsController@index');
  Route::get('/follower-list','PostsController@index');
