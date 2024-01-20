@@ -58,10 +58,13 @@ Route::group(['middleware' => 'auth'], function(){
  Route::post('/users/{user}/follow','UsersController@follow')->name('follow');
 
 //  フォローを解除する
- Route::post('/unfollow', 'FollowsController@unfollow')->name('unfollow');
+ Route::post('/users/{user}/unfollow', 'UsersController@unfollow')->name('unfollow');
 
- Route::get('/follow-list','PostsController@index');
- Route::get('/follower-list','PostsController@index');
+ //  フォローリスト
+ Route::get('/follow-list','FollowsController@followList');
+//  フォロワーリスト
+ Route::get('/follower-list','FollowsController@followerList');
+
 
 
 //  ログアウトする

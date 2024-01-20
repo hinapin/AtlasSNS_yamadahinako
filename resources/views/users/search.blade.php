@@ -32,14 +32,18 @@
         <td>{{$users->username}}</td>
         <!-- フォローボタン -->
         <td>
-          <form action="{{route('follow',$user->id)}}" method="post"><!-- ルーティングのURLを表示させる -->
-            @csrf
-            <button type="submit" class="btn btn-danger follow-btn">フォローする</button>
-          </form>
-          <form action="{{route('unfollow',$user->id)}}" method="post"><!-- ルーティングのURLを表示させる -->
-            @csrf
-            <button type="submit" class="btn btn-info unfollow-btn" >フォロー解除</button>
-          </form>
+          <!-- ↓もしフォローしていたら、解除を表示する -->
+          @if (auth()->user()->isFollowing($users->id))
+            <form action="{{ route('unfollow',$users->id)}}" method="post"><!-- ルーティングのURLを表示させる -->
+              @csrf
+              <button type="submit" class="btn btn-info unfollow-btn" >フォロー解除</button>
+            </form>
+          @else
+            <form action="{{ route('follow',$users->id)}}" method="post"><!-- ルーティングのURLを表示させる -->
+              @csrf
+              <button type="submit" class="btn btn-danger follow-btn">フォローする</button>
+            </form>
+          @endif
         </td>
       </tr>
     @endif

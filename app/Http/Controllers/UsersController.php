@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Article;
 use App\User;
+use App\Post;
 use Auth;
 
 
@@ -43,15 +44,29 @@ class UsersController extends Controller
     public function follow(User $user){
         // ↓ログインしたユーザーのこと
         $follower = Auth::user();
+        // ↓フォローしているか
+        $is_following = $follower->isFollowing($user->id);
+        // ↓もしフォローしていなければ
+        if(!$is_following){
+        // ↓フォローする
         $follower->follow($user->id);
-    // フォローしているか
-
+        // dd($user);
         return redirect('/search');
+         }
     }
 
-    // public function unfollow($id){
-
-    // }
+    // フォロー解除
+    public function unfollow(User $user){
+        $follower = Auth::user();
+        $is_following = $follower->isFollowing($user->id);
+         // ↓もしフォローしていたら
+        if($is_following){
+        // ↓フォローを解除する
+        $follower->unfollow($user->id);
+        // dd($user);
+        return redirect('/search');
+         }
+    }
 
     // public function store(Request $request){
     //     // バリデーション

@@ -48,8 +48,29 @@ class User extends Authenticatable
     }
     // フォローする
     public function follow(Int $user_id){
+    // 　followsデーブルにuser_idをくっつける
         return $this->follows()->attach($user_id);
     }
+
+    // フォロー解除
+    public function unfollow(Int $user_id){
+        // followsデーブルからuser_idを消す
+        return $this->follows()->detach($user_id);
+    }
+
+    // フォローしているか
+    public function isFollowing(Int $user_id){
+        // ↓boolean は、真偽の値を表します。 この値は、TRUE または FALSE のどちらかになります。
+        // ↓DBテーブル内にその値があるかどうかの判定
+        return (boolean) $this->follows()->where('followed_id',$user_id)->first();
+    }
+
+    // フォローされているか
+    public function isFollowed(Int $user_id){
+        return (boolean) $this->follows()->where('following_id',$user_id)->first();
+    }
+
+
 
 
 }

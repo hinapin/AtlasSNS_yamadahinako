@@ -6,41 +6,38 @@ use Illuminate\Http\Request;
 
 use Auth;
 use App\User;
+use APP\Post;
 use App\Follow;
 
 class FollowsController extends Controller
 {
-    // // フォローする
-    // public function follow(User $user){
-    //     $follower=Auth::User();
-    // // フォローしているか
-    //     $isFollowing=$follower->isFollowing($user->id);
-    //     if(!$isFollowing){
-    // // フォローしていなければフォローする
-    //         $follower->follow($user->id);
 
-    //         dd($user->id);
-    //     }
-    //     return redirect('/search');
-    // }
+    // public function Count(){
+    //     $follow_count = $user->getFollowCount();
+    //     $follower_count = $user->getFollowerCount();
 
-    // フォローを解除する
-    // public function unfollow(User $user){
-    //     $follower=Auth::User();
-    // // フォローしているか
-    //     $is_following=$follower->isFollowing($user->id);
-    //     if($is_following){
-    // // フォローしていればフォローを解除する
-    //         $follower->unfollow($user->id);
-    //     }
-    //     return redirect('/search');
+    //     return view('auth.login',compact('following_id','followed_id'));
     // }
     //
     public function followList(){
-        return view('follows.followList');
+        // ↓フォローしている人の情報を取得
+        $follows = Auth::user()->follows()->get();
+        // ↓フォローしているユーザーのidを習得
+        // pluck()...あるキーだけの情報をまとめて持ってきたい場合などに使える。
+        $following_id = Auth::user()->follows()->pluck('followed_id');
+        $posts = Post::query()->whereIn('user_id',Auth::user()->follows())->pluck('followed_id')>latest()->get();
+        dd($posts);
+
+        return view('follows.followList',['follows'=>$follow , 'posts'=>$posts]);
     }
+
     public function followerList(){
-        return view('follows.followerList');
+        $followers = Auth::user()->follower()->get();
+        $followed_id = Auth::user()->follower()->pluck('followed_id');
+
+        // dd($followed_id);
+
+        return view('follows.followerList',['followers'=>$followers]);
     }
 
 }
