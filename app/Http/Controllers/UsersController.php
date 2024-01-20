@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Article;
 use App\User;
 use App\Post;
+use App\Follow;
 use Auth;
 
 

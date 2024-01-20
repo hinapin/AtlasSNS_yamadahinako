@@ -20,6 +20,10 @@ class Follow extends Model
         return $this -> belongsTo('App\Post');
     }
 
+    public function user(){
+        return $this -> belongsTo('App\User');
+    }
+
     // // カウント関数を使う
     // public function getFollowCount($user_id){
     //     return $this->where('following_id',$user_id)->count();

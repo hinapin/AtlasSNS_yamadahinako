@@ -28,9 +28,8 @@
           @foreach ($posts as $post)
           <div class="post-user"><td>{{ $posts->user->username }}</td><br></div>
           <div class="create-time"><td>{{ $posts->created_at }}</td><br></div>
+          <div class="v-post"><td>{{ $posts->post}}</td><br></div>
           @endforeach
-        </div>
-        <div class="v-post"><td>{{ $posts->post}}</td><br></div>
         </div>
       <div class="b-color1"></div>
     </tr>

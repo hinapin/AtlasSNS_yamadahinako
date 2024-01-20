@@ -28,7 +28,7 @@ class FollowsController extends Controller
         $posts = Post::query()->whereIn('user_id',Auth::user()->follows())->pluck('followed_id')>latest()->get();
         dd($posts);
 
-        return view('follows.followList',['follows'=>$follow , 'posts'=>$posts]);
+        return view('follows.followList',['follows'=>$follows, 'posts'=>$posts]);
     }
 
     public function followerList(){
