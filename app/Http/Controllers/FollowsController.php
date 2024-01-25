@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use Auth;
 use App\User;
-use APP\Post;
+use App\Post;
 use App\Follow;
 
 class FollowsController extends Controller
@@ -25,19 +25,22 @@ class FollowsController extends Controller
         // ↓フォローしているユーザーのidを習得
         // pluck()...あるキーだけの情報をまとめて持ってきたい場合などに使える。
         $following_id = Auth::user()->follows()->pluck('followed_id');
-        $posts = Post::query()->whereIn('user_id',Auth::user()->follows())->pluck('followed_id')>latest()->get();
-        dd($posts);
+
+        $posts = Post::with('user')->whereIn('user_id',$following_id)->latest()->get();
+        // dd($posts);
 
         return view('follows.followList',['follows'=>$follows, 'posts'=>$posts]);
     }
 
     public function followerList(){
         $followers = Auth::user()->follower()->get();
-        $followed_id = Auth::user()->follower()->pluck('followed_id');
+        $followed_id = Auth::user()->follower()->pluck('following_id');
+        $posts = Post::with('user')->whereIn('user_id',$followed_id)->latest()->get();
 
-        // dd($followed_id);
 
-        return view('follows.followerList',['followers'=>$followers]);
+        // dd($posts);
+
+        return view('follows.followerList',['followers'=>$followers, 'posts'=>$posts ]);
     }
 
 }

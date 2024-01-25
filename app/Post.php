@@ -3,8 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Follow;
-use User;
+use App\Follow;
+use App\User;
 
 class Post extends Model
 {
@@ -22,7 +22,7 @@ class Post extends Model
         return $this -> belongsTo('App\User');
     }
 
-    public function follows(){
+    public function follow(){
         return $this -> belongsTo('App\Follow');
     }
 }

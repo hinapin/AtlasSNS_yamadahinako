@@ -36,6 +36,7 @@ class User extends Authenticatable
         return $this ->belongsToMany('App\Post');
     }
 
+
     // フォローしているユーザーを取得
     // ①相手のクラス②中間テーブル③自分のカラム④相手のカラム
     public function follows(){

@@ -17,6 +17,14 @@ class UsersController extends Controller
         return view('users.profile');
     }
 
+    public function usersProfile($id){
+
+        $users = User::where('id',$id)->first();
+        // dd($users);
+
+        return view('users.usersProfile',['users'=>$users]);
+    }
+
     // 検索結果を表示させる
     public function search(Request $request){
 
@@ -86,9 +94,6 @@ class UsersController extends Controller
 
     // }
     // }
-
-
-
 
     public function updateProfile(Request $request)
     {
