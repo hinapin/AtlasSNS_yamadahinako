@@ -20,9 +20,10 @@ class UsersController extends Controller
     public function usersProfile($id){
 
         $users = User::where('id',$id)->first();
-        // dd($users);
+        $posts = Post::with('user')->whereIn('user_id',$users)->latest()->get();
+        // dd($posts);
 
-        return view('users.usersProfile',['users'=>$users]);
+        return view('users.usersProfile',['users'=>$users,'posts'=>$posts]);
     }
 
     // 検索結果を表示させる

@@ -18,7 +18,9 @@
 
 
 
+
 {!! Form::close() !!}
+
 
 
 <div>
@@ -46,7 +48,7 @@
 
           <td><a class="trash-btn" href="/post/{{ $list->id }}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')"></a></td>
         <!-- aタグによって別のページに移動する属性→href属性でその方向性を記述 -->
-        </div>
+      </div>
 
       @endif
 

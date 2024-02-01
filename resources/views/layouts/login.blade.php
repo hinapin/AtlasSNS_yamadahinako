@@ -24,20 +24,21 @@
 </head>
 <body>
     <header>
-        <div id ="head">
-            <h1><a href="{{ URL::to('/top') }}"><img src="{{ asset('/images/atlas.png')}}" class="atlas-logo"></a></h1>
-            <div id="header-container">
-                <div id="login-name"><p>{{ Auth::user()->username }}さん</p><div>
-                    <div class="menu-list">
-                    <btn class="menu-btn">////</btn>
-                        <ul class="menu">
-                            <li><a class="accordion-menu" href="/top">HOME</a></li>
-                            <li><a class="accordion-menu" href="/profile">プロフィール編集</a></li>
-                            <li><a class="accordion-menu" href="/logout">ログアウト</a></li>
-                        </ul>
-                    <div><img src="{{ asset('storage/'.Auth::user()->images) }}" class="profile-image"></div>
+        <div><a href="{{ URL::to('/top') }}"><img src="{{ asset('/images/atlas.png')}}" class="atlas-logo"></a></div>
+        <div class="head">
+            <div class="login-name menu-list">{{ Auth::user()->username }}             さん</div>
+            <!-- ★ -->
+            <div class="menu-btn menu-list"><span class="inn"></span></div>
+            <div><img src="{{ asset('storage/'.Auth::user()->images) }}" class="profile-image menu-list"></div>
+            <div class="menu">
+                <ul>
+                    <li><a class="accordion-menu"  href="{{ URL::to('/top') }}">HOME</a></li>
+                    <li><a class="accordion-menu accordion-profile" href="{{ URL::to('/profile') }}">プロフィール編集</a></li>
+                    <li><a class="accordion-menu"  href="/logout">ログアウト</a></li>
+                </ul>
             </div>
         </div>
+                <!-- ★ -->
     </header>
 
     <div id="row">
@@ -48,24 +49,24 @@
                 <input name="post" placeholder="投稿内容を入力してください。" >
             </form> -->
 
-        </div >
+        </div>
 
         <div id="side-bar">
             <div id="confirm">
-                <p>{{  Auth::user()->username }}さんの</p>
-                <div>
+                <p class="follow-count">{{  Auth::user()->username }}さんの</p>
+                <div class="follow-count">
                 <p>フォロー数</p>
                 <p>{{ Auth::user()->follows()->count() }}名</p>
                 </div>
-                <a class="btn btn-primary" href="{{ URL::to('/follow-list') }}" role="button">フォローリスト</a>
-                <div>
+                <a class="btn btn-primary follow-listbtn" href="{{ URL::to('/follow-list') }}" role="button">フォローリスト</a>
+                <div class="follower-count">
                 <p>フォロワー数</p>
                 <p>{{ Auth::user()->follower()->count()}}名</p>
                 </div>
-                <a class="btn btn-primary" href="{{ URL::to('/follower-list') }}" role="button">フォロワーリスト</a>
+                <a class="btn btn-primary follow-listbtn" href="{{ URL::to('/follower-list') }}" role="button">フォロワーリスト</a>
             </div>
             <div class="b-color1"></div>
-            <a class="btn btn-primary" href="/search" role="button">ユーザー検索</a>
+            <div><a class="btn btn-primary user-search" href="/search" role="button">　ユーザー検索　</a></div>
         </div>
     </div>
     <footer>
@@ -74,3 +75,16 @@
     <script src="{{ asset('/js/script.js') }}"></script>
 </body>
 </html>
+
+
+            <!-- ★ -->
+            <!-- <div class="menu-list">
+            <button type="button" class="menu-btn">///<span class="inn"></span></button>
+                <ul>
+                    <nav class="menu">
+                        <li><a class="accordion-menu" href="/top">HOME</a></li>
+                        <li><a class="accordion-menu" href="/profile">プロフィール編集</a></li>
+                        <li><a class="accordion-menu" href="/logout">ログアウト</a></li>
+                    </nav>
+                </ul>
+            </div> -->

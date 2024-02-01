@@ -10,28 +10,39 @@ body {
 
 /* header */
 header {
+    display: flex;
+    position: relative;
+    /* justify-content: flex-end; */
     background: #186AC9;
     width: 100%;
     height: 80px;
+
 }
 
-#head {
-    color: #ffffff;
+header div:first-of-type {
+    margin-right: auto;
 }
 
-#header-container {
-    display: -webkit-flex;
+.head {
+    margin: 15px;
+    gap: 20px;
     display: flex;
-    -webkit-justify-content: flex-end;
+    flex-wrap: nowrap;
     justify-content: flex-end;
-    -webkit-align-items: flex-end;
-    align-items: flex-end;
+    /* text-align: right; */
 }
+
+
 
 img.atlas-logo {
     width: 140px;
     position: relative;
     padding: 18px;
+}
+
+.login-name {
+    color: #ffffff;
+    font-weight: bold;
 }
 
 
@@ -42,6 +53,11 @@ img.atlas-logo {
 /* アコーディオンメニュー */
 
 .menu-list {
+    /* display: flex; */
+    margin: auto;
+}
+
+/* .menu-list {
 
     width: max-content;
     position: absolute;
@@ -50,32 +66,108 @@ img.atlas-logo {
 
 .menu-btn {
     background-color: #186AC9;
-    color: #ffffff;
-    /* position: relative; */
-}
+    color: #ffffff; */
+/* position: relative; */
+/* } */
 
 
-.menu {
+/* .menu {
     display: none;
     position: absolute;
     width: max-content;
-}
+} */
 
 .accordion-menu {
     background-color: #ffffff;
+    width: 230px;
     display: block;
     border: 1px solid #186AC9;
     padding: 20px;
     font-size: larger;
     color: #727272;
-    font-weight: lighter;
+    font-weight: bolder;
     text-align: center;
     text-decoration: none;
+}
+
+.accordion-profile {
+    background-color: #223a70;
+    color: #fff;
 }
 
 img.profile-image {
     width: 50px;
     height: 50px;
+}
+
+/* ★ */
+
+.menu-btn {
+
+    width: 40px;
+    height: 40px;
+    top: 1px;
+    /* right: 1px; */
+    background-color: #186AC9;
+    /* color: #fff; */
+    /* outline: initial; */
+
+    &:focus-visible {
+        box-shadow: 0 0 0 2px blue;
+    }
+
+    .inn {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+
+        &:before {
+            position: absolute;
+            content: "";
+            top: 40%;
+            left: 50%;
+            width: 15px;
+            height: 15px;
+            transform: translate(-50%, -40%) rotate(135deg);
+            border-top: 2px solid #ffffff;
+            border-right: 2px solid #ffffff;
+            transition: 0s ease;
+        }
+    }
+}
+
+.menu-btn.is-open {
+    .inn {
+        &:before {
+            top: 60%;
+            transform: translate(-50%, -60%) rotate(-45deg);
+        }
+    }
+}
+
+.menu {
+    margin-top: 64px;
+    opacity: 0;
+    transition: .0s ease-in-out;
+    pointer-events: none;
+    transform: translateY(-30px);
+    /* ul {
+        border-bottom: 1px solid #000;
+
+        li {
+            height: 60px;
+            border-top: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+    } */
+}
+
+.menu.is-open {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* サイドバー */
@@ -87,8 +179,28 @@ img.profile-image {
 }
 
 #confirm {
-    text-align: left;
-    margin: 20px;
+    /* text-align: left; */
+    margin: 15px;
+}
+
+.follow-count {
+    display: flex;
+    gap: 30px;
+}
+
+.follower-count {
+    display: flex;
+    gap: 15px;
+    /* margin-top: 20px; */
+}
+
+.follow-listbtn {
+    margin: 0 0 20px auto;
+}
+
+.user-search {
+    text-align: center;
+    margin: 10px 40px 10px 40px;
 }
 
 
@@ -97,14 +209,19 @@ img.profile-image {
 /* 投稿機能 */
 
 .form-container {
+    display: flex;
     display: -webkit-flex;
     display: flex;
     -webkit-justify-content: space-around;
     justify-content: space-around;
     margin: 20px 40px 20px 10px;
-    gap: 10px;
-    right: 10px;
+    gap: 5px;
+    /* right: 10px; */
 }
+
+/* .form-container div:last-of-type {
+    margin-left: auto;
+} */
 
 .post-form {
     border: none;
@@ -116,10 +233,10 @@ img.profile-image {
 img.submit-btn {
     width: 70px;
     position: relative;
-    padding: 18px;
+    margin: 60px 0 0 0;
     border-radius: 20px;
     margin-left: 10px;
-    top: 50px;
+    justify-content: flex-end;
 }
 
 div.b-color {
@@ -231,12 +348,13 @@ button img {
 }
 
 .v-post {
-    margin: 0 0 0 60px;
+    margin: 0 0 20px 65px;
     top: 50px;
 }
 
 .contents1 {
     display: flex;
+    gap: 15px;
 }
 
 .contents2 {

@@ -52,7 +52,7 @@ class PostsController extends Controller
         $up_post = $request->input('upPost');
 
 
-        // dd($up_post);
+        // dd($id);
 
         Post::where('id', $id)->update([
             'post' => $up_post,

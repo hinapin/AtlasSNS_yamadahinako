@@ -1,11 +1,19 @@
 
-$(function () {
-  $(".menu-btn").click(function () {
-    $(this).next().toggleClass();
-    // 矢印の向きを変更
-    // $(this).toggleClass("open", fast);
-  });
+// $(function () {
+//   $(".menu-btn").click(function () {
+//     $(this).next().toggleClass();
+//     // 矢印の向きを変更
+//     // $(this).toggleClass("open", fast);
+//   });
+// });
+
+
+// ★
+$('.menu-btn').click(function () {
+  $(this).toggleClass('is-open');
+  $(this).siblings('.menu').toggleClass('is-open');
 });
+// ★
 
 // 1 "クリックしたら処理を行う"というクリックイベント
 // toggleClass()・・・指定したclassを付け外し出来る
@@ -40,16 +48,15 @@ $(function () {
 });
 
 
+
 $(function () {
 
   // 編集ボタンを押したら中身が現れる
   $('.edit-btn').on('click', function () {
-    $('.v-post').fadeIn();
+    $('.modal__content').fadeIn();
 
     // 押されたボタンから投稿内容を取得し変数へ格納
     var post = $(this).attr('post');
-    // 押されたボタンから投稿のIDを取得し変数へ格納
-    // （どの投稿を編集するか特定するために必要）
     var post_id = $(this).attr('post_id');
 
     // 取得した投稿内容,idをモーダルの中身へ渡す
@@ -57,6 +64,11 @@ $(function () {
     $('.modal_id').val(post_id);
 
     return false;
-
   });
+
+  // $('.edit-close').on('click', function () {
+  //   $('.edit-form').fadeOut();
+
+  //   return false;
+  // });
 });
