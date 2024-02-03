@@ -26,19 +26,19 @@
     <header>
         <div><a href="{{ URL::to('/top') }}"><img src="{{ asset('/images/atlas.png')}}" class="atlas-logo"></a></div>
         <div class="head">
-            <div class="login-name menu-list">{{ Auth::user()->username }}             さん</div>
+            <div class="login-name menu-list">{{ Auth::user()->username }}　さん</div>
             <!-- ★ -->
             <div class="menu-btn menu-list"><span class="inn"></span></div>
-            <div><img src="{{ asset('storage/'.Auth::user()->images) }}" class="profile-image menu-list"></div>
             <div class="menu">
-                <ul>
-                    <li><a class="accordion-menu"  href="{{ URL::to('/top') }}">HOME</a></li>
-                    <li><a class="accordion-menu accordion-profile" href="{{ URL::to('/profile') }}">プロフィール編集</a></li>
-                    <li><a class="accordion-menu"  href="/logout">ログアウト</a></li>
-                </ul>
+            <ul>
+            <li><a class="accordion-menu" href="/top">HOME</a></li>
+            <li><a class="accordion-menu accordion-profile" href="{{ URL::to('/profile') }}">プロフィール編集</a></li>
+            <li><a class="accordion-menu"  href="{{ URL::to('/logout') }}">ログアウト</a></li>
+            </ul>
             </div>
+            <div><img src="{{ asset('storage/'.Auth::user()->images) }}" class="profile-image menu-list"></div>
         </div>
-                <!-- ★ -->
+            <!-- ★ -->
     </header>
 
     <div id="row">

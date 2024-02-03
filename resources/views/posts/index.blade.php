@@ -30,12 +30,13 @@
       <div class="contents">
         <div class="contents1">
           <div><img src="{{asset('storage/'.$list->user->images)}}" class="profile-image"></div>
-          <div class="post-user"><td>{{ $list->user->username }}</td><br></div>
+          <div class="content">
+              <div class="post-user"><td>{{ $list->user->username }}</td><br></div>
+              <div class="v-post"><td>{{ $list->post }}</td><br></div>
+          </div>
           <div class="create-time"><td>{{ $list->created_at }}</td><br></div>
           <!-- <td>{{ $list->user_id }}</td><br> -->
         </div>
-
-        <div class="v-post"><td>{{ $list->post }}</td><br></div>
 
       @if ($user_id == $list->user_id)
 

@@ -13,7 +13,7 @@
     {{ Form::text('mail',null,['class' => 'input']) }}
     {{ Form::label('password') }}
     {{ Form::password('password',['class' => 'input']) }}
-    {{ Form::submit('Login',['class' => 'btn btn-danger']) }}
+    {{ Form::submit('　Login　',['class' => 'btn btn-danger']) }}
   <p><a href="/register" class="register-message">新規ユーザーの方はこちら</a></p>
 </>
 

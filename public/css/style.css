@@ -73,9 +73,8 @@ img.atlas-logo {
 
 /* .menu {
     display: none;
-    position: absolute;
-    width: max-content;
 } */
+
 
 .accordion-menu {
     background-color: #ffffff;
@@ -100,17 +99,14 @@ img.profile-image {
     height: 50px;
 }
 
-/* ★ */
-
 .menu-btn {
-
     width: 40px;
     height: 40px;
     top: 1px;
-    /* right: 1px; */
+    right: 1px;
     background-color: #186AC9;
-    /* color: #fff; */
-    /* outline: initial; */
+    color: #fff;
+    outline: initial;
 
     &:focus-visible {
         box-shadow: 0 0 0 2px blue;
@@ -137,6 +133,40 @@ img.profile-image {
     }
 }
 
+/* .menu-btn {
+    width: 40px;
+    height: 40px;
+    top: 1px;
+    right: 1px;
+    background-color: #186AC9;
+    color: #fff;
+    outline: initial;
+
+    &:focus-visible {
+        box-shadow: 0 0 0 2px blue;
+    }
+
+    .inn {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+
+        &:before {
+            position: absolute;
+            content: "";
+            top: 40%;
+            left: 50%;
+            width: 15px;
+            height: 15px;
+            transform: translate(-50%, -40%) rotate(135deg);
+            border-top: 2px solid #ffffff;
+            border-right: 2px solid #ffffff;
+            transition: 0s ease;
+        }
+    }
+} */
+
 .menu-btn.is-open {
     .inn {
         &:before {
@@ -147,28 +177,27 @@ img.profile-image {
 }
 
 .menu {
-    margin-top: 64px;
-    opacity: 0;
-    transition: .0s ease-in-out;
-    pointer-events: none;
-    transform: translateY(-30px);
-    /* ul {
-        border-bottom: 1px solid #000;
-
-        li {
-            height: 60px;
-            border-top: 1px solid #000;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-        }
-    } */
+    display: none;
 }
 
 .menu.is-open {
     opacity: 1;
     transform: translateY(0);
+    margin-top: 64px;
+    opacity: 0;
+    transition: .0s ease-in-out;
+    pointer-events: none;
+    transform: translateY(-30px);
 }
+
+
+/* .menu.is-open {
+    opacity: 1;
+    transform: translateY(0);
+
+} */
+
+
 
 /* サイドバー */
 
@@ -210,13 +239,19 @@ img.profile-image {
 
 .form-container {
     display: flex;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-justify-content: space-around;
-    justify-content: space-around;
-    margin: 20px 40px 20px 10px;
+    position: relative;
+    /* display: -webkit-flex;
+    display: flex; */
+    /* -webkit-justify-content: space-around; */
+    /* justify-content: space-around; */
+    margin: 20px 30px 20px 80px;
     gap: 5px;
     /* right: 10px; */
+}
+
+.submit-btn {
+    margin-right: 100px;
+    margin-top: 75px;
 }
 
 /* .form-container div:last-of-type {
@@ -244,12 +279,16 @@ div.b-color {
     width: auto;
     height: 6px;
     opacity: 20%;
-    margin-top: 30px;
+    margin-top: 10px;
     margin-bottom: 15px;
 }
 
 .contents {
-    margin: 15px 30px 15px 60px;
+    margin: 15px 50px 15px 90px;
+}
+
+.content {
+    display: block;
 }
 
 
@@ -348,7 +387,7 @@ button img {
 }
 
 .v-post {
-    margin: 0 0 20px 65px;
+    margin: 10px 0 10px 0px;
     top: 50px;
 }
 
@@ -391,9 +430,31 @@ button img {
 
 img .search-btn {
     margin-left: 20px;
+    margin-top: 20px;
     width: 40px;
     height: 40px;
     background-image: url("../images/search.png");
+}
+
+/* フォローリスト */
+
+.caption {
+    font-size: 30px;
+    margin: 0 60px 0 40px;
+}
+
+.list-member {
+    margin: 0 20px 0 0;
+}
+
+.listform-container {
+    display: flex;
+    /* display: -webkit-flex;
+    -webkit-justify-content: space-around; */
+    /* justify-content: space-around; */
+    margin: 20px 40px 20px 30px;
+    /* gap: 5px; */
+    /* right: 10px; */
 }
 
 /* 自分以外のユーザーリスト */
@@ -402,6 +463,40 @@ img .search-btn {
     margin-bottom: 20px;
     text-align: center;
 }
+
+.name-bio {
+    display: block;
+    margin: 0 50px 0 20px;
+}
+
+.profile-user {
+    margin: 0 0 0 70px;
+    text-align: left;
+    /* width: max-content; */
+}
+
+.introduction {
+    display: flex;
+    width: 260px;
+    margin: 0 320px 30px 10px;
+}
+
+.profile-item {
+    position: absolute;
+    margin: 0 40px 0 0;
+}
+
+.prunfollow-btn {
+    position: absolute;
+    margin: 70px 0 0 150px;
+}
+
+
+.prfollow-btn {
+    margin: 70px 0 0 150px;
+}
+
+
 
 /* プロフィール編集画面 */
 

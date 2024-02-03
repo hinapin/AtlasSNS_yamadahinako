@@ -6,9 +6,9 @@
   <div class="search-user">
     <form action="{{ url('/search') }}" method="get">
       <input type="keyword" name="username" class="search-form" placeholder="ユーザー名">
-
-      <button type="submit" class="search-btn"><img src="images/search.png"></button>
     </form>
+
+    <button type="submit" class="search-btn"><img src="images/search.png"></button>
   </div>
 
   <div class="search-word">
@@ -22,7 +22,7 @@
 <div class="b-color"></div>
 
 <!-- 検索ワードの表示 -->
-  <table>
+  <table class="search-list">
     @foreach($users as $users)
     <div class="user-list">
     @if(!($user->username == $users->username))

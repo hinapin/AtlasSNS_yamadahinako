@@ -2,11 +2,11 @@
 
 @section('content')
 
-<div class="form-container">
+<div class="listform-container">
 
-<h1>Follower List</h1>
+<h1 class="caption">Follower List</h1>
 @foreach ($followers as $followed_id)
-<td><a href="/users/{{$followed_id->id}}/profile"><img src="{{ asset('storage/'.$followed_id->images)}}" class="profile-image"></a></td>
+<div class="list-member"><a href="/users/{{$followed_id->id}}/profile"><img src="{{ asset('storage/'.$followed_id->images)}}" class="profile-image"></a></div>
 @endforeach
 </div>
 
@@ -18,8 +18,10 @@
     <div class="contents">
       <div class="contents1">
           <td><a href="/users/{{$post->user->id}}/profile"><img src="{{ asset('storage/'.$post->user->images)}}" class="profile-image"></a></td>
-          <div class="post-user"><td>{{ $post->user->username }}</td><br></div>
-          <div class="v-post"><td>{{ $post->post}}</td><br></div>
+          <div class="content">
+            <div class="post-user"><td>{{ $post->user->username }}</td><br></div>
+            <div class="v-post"><td>{{ $post->post}}</td><br></div>
+          </div>
           <div class="create-time"><td>{{ $post->created_at }}</td><br></div>
       </div>
     </div>
