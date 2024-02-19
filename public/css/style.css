@@ -24,12 +24,11 @@ header div:first-of-type {
 }
 
 .head {
-    margin: 15px;
+    margin: 15px 30px;
     gap: 20px;
     display: flex;
-    flex-wrap: nowrap;
+    /* flex-wrap: nowrap; */
     justify-content: flex-end;
-    /* text-align: right; */
 }
 
 
@@ -43,42 +42,54 @@ img.atlas-logo {
 .login-name {
     color: #ffffff;
     font-weight: bold;
+    margin-top: 14px;
 }
 
+/* ここから */
 
+
+.accordion-title {
+    cursor: pointer;
+    margin: 20px;
+    position: relative;
+}
+
+.accordion-title:after {
+    /* position: absolute; */
+    text-align: center;
+    display: block;
+    content: '';
+    top: 35%;
+    right: 10px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(135deg);
+}
+
+.accordion-title.open:after {
+    transform: rotate(-45deg);
+    top: 45%;
+}
+
+.accordion-text {
+    position: absolute;
+    top: 79px;
+    right: 0;
+    display: none;
+}
+
+/* ここ */
 
 
 
 
 /* アコーディオンメニュー */
 
-.menu-list {
-    /* display: flex; */
-    margin: auto;
-}
-
-/* .menu-list {
-
-    width: max-content;
-    position: absolute;
-    right: 0px;
-}
-
-.menu-btn {
-    background-color: #186AC9;
-    color: #ffffff; */
-/* position: relative; */
-/* } */
-
-
-/* .menu {
-    display: none;
-} */
-
-
 .accordion-menu {
     background-color: #ffffff;
-    width: 230px;
+    width: 288px;
     display: block;
     border: 1px solid #186AC9;
     padding: 20px;
@@ -99,105 +110,6 @@ img.profile-image {
     height: 50px;
 }
 
-.menu-btn {
-    width: 40px;
-    height: 40px;
-    top: 1px;
-    right: 1px;
-    background-color: #186AC9;
-    color: #fff;
-    outline: initial;
-
-    &:focus-visible {
-        box-shadow: 0 0 0 2px blue;
-    }
-
-    .inn {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        display: flex;
-
-        &:before {
-            position: absolute;
-            content: "";
-            top: 40%;
-            left: 50%;
-            width: 15px;
-            height: 15px;
-            transform: translate(-50%, -40%) rotate(135deg);
-            border-top: 2px solid #ffffff;
-            border-right: 2px solid #ffffff;
-            transition: 0s ease;
-        }
-    }
-}
-
-/* .menu-btn {
-    width: 40px;
-    height: 40px;
-    top: 1px;
-    right: 1px;
-    background-color: #186AC9;
-    color: #fff;
-    outline: initial;
-
-    &:focus-visible {
-        box-shadow: 0 0 0 2px blue;
-    }
-
-    .inn {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        display: flex;
-
-        &:before {
-            position: absolute;
-            content: "";
-            top: 40%;
-            left: 50%;
-            width: 15px;
-            height: 15px;
-            transform: translate(-50%, -40%) rotate(135deg);
-            border-top: 2px solid #ffffff;
-            border-right: 2px solid #ffffff;
-            transition: 0s ease;
-        }
-    }
-} */
-
-.menu-btn.is-open {
-    .inn {
-        &:before {
-            top: 60%;
-            transform: translate(-50%, -60%) rotate(-45deg);
-        }
-    }
-}
-
-.menu {
-    display: none;
-}
-
-.menu.is-open {
-    opacity: 1;
-    transform: translateY(0);
-    margin-top: 64px;
-    opacity: 0;
-    transition: .0s ease-in-out;
-    pointer-events: none;
-    transform: translateY(-30px);
-}
-
-
-/* .menu.is-open {
-    opacity: 1;
-    transform: translateY(0);
-
-} */
-
-
 
 /* サイドバー */
 
@@ -209,7 +121,7 @@ img.profile-image {
 
 #confirm {
     /* text-align: left; */
-    margin: 15px;
+    margin: 15px 0 15px 15px;
 }
 
 .follow-count {
@@ -313,7 +225,7 @@ div.b-color1 {
 }
 
 .edit-container {
-    top: -600px;
+    top: -500px;
     right: -236px;
     width: 660px;
     height: 270px;
@@ -376,6 +288,7 @@ button img {
     position: absolute;
     display: block;
     top: 190px;
+    right: 300px;
 }
 
 .create-time {
@@ -415,9 +328,8 @@ button img {
 }
 
 .search-user {
-    display: -webkit-flex;
     display: flex;
-    margin: 20px 40px 20px 20px;
+    margin: 20px 40px 20px 40px;
     padding: 20px 40px 20px 20px;
     gap: 20px;
 }
@@ -428,13 +340,37 @@ button img {
 }
 
 
-img .search-btn {
+img.search-btn {
     margin-left: 20px;
-    margin-top: 20px;
+    margin-top: 40px;
     width: 40px;
     height: 40px;
     background-image: url("../images/search.png");
 }
+
+.search-word {
+    font-size: 25px;
+    font-weight: 90;
+    margin: 16px 0 0 30px;
+}
+
+.search-list {
+    margin: 0 300px;
+}
+
+
+.search-member {
+    gap: 30px;
+    align-items: center;
+    display: flex;
+    margin: 20px 0 20px 0;
+}
+
+.search-followbtn {
+    margin: 0 0 0 300px;
+    position: absolute;
+}
+
 
 /* フォローリスト */
 
@@ -458,11 +394,6 @@ img .search-btn {
 }
 
 /* 自分以外のユーザーリスト */
-
-.user-list {
-    margin-bottom: 20px;
-    text-align: center;
-}
 
 .name-bio {
     display: block;
@@ -504,15 +435,54 @@ img .search-btn {
     position: relative; */
 /* } */
 
+.my-update {
+    display: flex;
+    gap: 30px;
+    margin: 30px 0 0 200px;
+}
+
+.update-list {
+    display: flex;
+    margin: 5px 0 30px 0;
+}
+
 img.update-icon {
     width: 50px;
     height: 50px;
 }
 
 .input {
-    display: block;
+    margin: 0 0 0 300px;
+    position: absolute;
+    width: 300px;
+    height: 40px;
+    background-color: #f5f5f5;
+    border: 1px solid #adadad;
 }
 
-label {
-    /* text-align: center; */
+.input[type=file] {
+    display: none;
+}
+
+.file__label {
+
+    font-size: 16px;
+    text-align: center;
+    margin: 0 0 0 221px;
+    padding: 40px;
+    width: 300px;
+    line-height: 30px;
+    color: #adadad;
+    background-color: #f5f5f5;
+    border: 1px solid #adadad;
+}
+
+.file__in {
+    text-align: center;
+    background-color: #fff;
+    padding: 5px 8px;
+}
+
+.rebtn {
+    margin: 0 0 0 100px;
 }

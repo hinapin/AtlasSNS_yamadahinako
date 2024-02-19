@@ -48,6 +48,10 @@ class PostsController extends Controller
     // つぶやきを更新する
     public function update(Request $request){
 
+        $request->validate([
+            'upPost' => 'required|min:1|max:150',
+        ]);
+
         $id = $request->input('id');
         $up_post = $request->input('upPost');
 

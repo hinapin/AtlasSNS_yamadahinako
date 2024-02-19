@@ -27,15 +27,12 @@
         <div><a href="{{ URL::to('/top') }}"><img src="{{ asset('/images/atlas.png')}}" class="atlas-logo"></a></div>
         <div class="head">
             <div class="login-name menu-list">{{ Auth::user()->username }}　さん</div>
-            <!-- ★ -->
-            <div class="menu-btn menu-list"><span class="inn"></span></div>
-            <div class="menu">
-            <ul>
-            <li><a class="accordion-menu" href="/top">HOME</a></li>
-            <li><a class="accordion-menu accordion-profile" href="{{ URL::to('/profile') }}">プロフィール編集</a></li>
-            <li><a class="accordion-menu"  href="{{ URL::to('/logout') }}">ログアウト</a></li>
-            </ul>
-            </div>
+            <div class="accordion-title js-accordion-title"></div>
+                <ul class="accordion-text">
+                    <li><a class="accordion-menu" href="{{URL::to('/top')}}">HOME</a></li>
+                    <li><a class="accordion-menu accordion-profile" href="{{URL::to('/profile')}}">プロフィール編集</a></li>
+                    <li><a class="accordion-menu"  href="{{URL::to('/logout')}}">ログアウト</a></li>
+                </ul>
             <div><img src="{{ asset('storage/'.Auth::user()->images) }}" class="profile-image menu-list"></div>
         </div>
             <!-- ★ -->
@@ -44,11 +41,6 @@
     <div id="row">
         <div id="container">
             @yield('content')
-
-            <!-- <form>
-                <input name="post" placeholder="投稿内容を入力してください。" >
-            </form> -->
-
         </div>
 
         <div id="side-bar">
@@ -75,16 +67,3 @@
     <script src="{{ asset('/js/script.js') }}"></script>
 </body>
 </html>
-
-
-            <!-- ★ -->
-            <!-- <div class="menu-list">
-            <button type="button" class="menu-btn">///<span class="inn"></span></button>
-                <ul>
-                    <nav class="menu">
-                        <li><a class="accordion-menu" href="/top">HOME</a></li>
-                        <li><a class="accordion-menu" href="/profile">プロフィール編集</a></li>
-                        <li><a class="accordion-menu" href="/logout">ログアウト</a></li>
-                    </nav>
-                </ul>
-            </div> -->

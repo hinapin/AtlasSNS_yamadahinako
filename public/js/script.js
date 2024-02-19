@@ -1,19 +1,12 @@
 
-// $(function () {
-//   $(".menu-btn").click(function () {
-//     $(this).next().toggleClass();
-//     // 矢印の向きを変更
-//     // $(this).toggleClass("open", fast);
-//   });
-// });
 
-
-// ★
-$('.menu-btn').click(function () {
-  $(this).toggleClass('is-open');
-  $(this).siblings('.menu').toggleClass('is-open');
+$(function () {
+  $(".js-accordion-title").on("click", function () {
+    $(this).next().slideToggle(200);
+    $(this).toggleClass("open", 200);
+  });
 });
-// ★
+
 
 
 

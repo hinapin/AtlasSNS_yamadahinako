@@ -103,29 +103,40 @@ class UsersController extends Controller
         $mail = $request->input('mail');
         $password = $request->input('password');
         $bio = $request->input('bio');
-        $filename = $request->images->getClientOriginalName();
-        $images = $request->images->storeAs('user-images', $filename,'public');
 
         // dd($images);
-
         $request->validate([
                 'username' => 'required|min:2|max:12',
-                'mail' => 'required|unique:users|email:rfc|min:5|max:40',
+                'mail' => 'required|email:rfc|min:5|max:40|unique:users,mail,' . $request->id . ',id',
                 'password' => 'required|confirmed|alpha_num|min:8|max:20',
                 'bio' => 'max:150',
-                'images' => 'file|image|mimes:jpeg,png,bmp,gif,svg',
+                // 'images' => 'file|image|mimes:jpeg,png,bmp,gif,svg',
             ]);
-
 
         User::where('id', $id)-> update([
             'username' => $username,
             'mail' => $mail,
             'password' => bcrypt($password),
             'bio' => $bio,
-            'images' => $images,
+            // 'images' => $images,
         ]);
+
+        if($request->images != null){
+            $filename = $request->images->getClientOriginalName();
+            $images = $request->images->storeAs('user-images', $filename,'public');
+
+            $request->validate([
+                'images' => 'file|image|mimes:jpeg,png,bmp,gif,svg',
+            ]);
+
+            User::where('id', $id)-> update([
+                'images' => $images,
+            ]);
+        }
+
 
         return redirect('/top');
 
     }
+
 }

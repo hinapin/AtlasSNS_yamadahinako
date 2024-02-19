@@ -66,7 +66,6 @@
   <div class="modal__bg edit-close"></div>
   <div class="modal__content">
     <form action="/post/update" method="post">
-
       <textarea name="upPost" class="modal_post"></textarea>
       <input type="hidden" name="id" class="modal_id" value="">
       <button type="submit" class="edit-close"><img src="images/edit.png"></button>
