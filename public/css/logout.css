@@ -13,14 +13,22 @@ body {
     margin: 0 auto;
     background: #186AC9;
     background-color: #D9AFD9;
-    background-image: linear-gradient(0deg, #d9afd9 0%, #97D9E1 100%);
+    background-image: linear-gradient(0deg, #d5d52b 0%, #0080ff 80%);
     /* text-align: center; */
 }
 
 
 img.atlas-logo {
     width: 160px;
-    top: 130px;
+    top: 100px;
+    position: relative;
+    padding: 18px;
+    margin: auto;
+}
+
+img.atlas-logo-r {
+    width: 160px;
+    top: 65px;
     position: relative;
     padding: 18px;
     margin: auto;
@@ -38,46 +46,52 @@ img.atlas-logo {
     top: 58%;
     left: 50%;
     display: block;
-    width: auto;
-    height: 330px;
+    width: 300px;
+    height: 360px;
     transform: translate(-50%, -50%);
-    padding: 0.5em 1em 2em;
-    margin: 2em auto;
-    background-color: rgba(255, 0, 0, 0.1);
+    padding: 25px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 10%);
     border-radius: 15px;
-    /* text-align: center; */
 }
-
-
 
 .phrase {
     color: #ffffff;
     font-size: 30px;
-    margin-top: 110px;
+    margin-top: 80px;
 
+}
+
+.phrase-r {
+    color: #ffffff;
+    font-size: 30px;
+    margin-top: 45px;
 }
 
 label {
     color: #ffffff;
     font-weight: lighter;
-    padding-left: 1.5em;
 }
 
 .input {
-    display: block;
-    margin: auto;
+    width: 250px;
+    height: 35px;
+    border: 1px solid #adadad;
+    border-radius: 7px;
+    /* display: block; */
+    /* margin: auto; */
     color: black;
 }
 
-.btn-danger {
-    margin: 10px 10px 10px 115px;
+.login-btn {
+    margin: 20px 0 30px 150px;
 }
 
 .register-message {
     color: #ffffff;
     text-decoration: none;
-    margin: 40px;
-    font-size: small;
+    margin: 27px;
+    font-size: medium;
 }
 
 
@@ -88,13 +102,13 @@ label {
     position: absolute;
     top: 58%;
     left: 50%;
-    display: block;
-    width: auto;
-    height: 400px;
+    /* display: block; */
+    width: 300px;
+    height: 500px;
     transform: translate(-50%, -50%);
-    padding: 0.5em 1em 2em;
+    padding: 25px;
     margin: 2em auto;
-    background-color: rgba(255, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 10%);
     border-radius: 15px;
 }
 
@@ -106,9 +120,48 @@ label {
     text-align: center;
 }
 
+.register-list {
+    display: block;
+    margin-top: 15px;
+}
+
+.register-btn {
+    margin: 20px 0 20px 115px;
+}
+
 .back-login {
     color: #ffffff;
     text-decoration: none;
-    margin: 40px;
-    font-size: small;
+    margin: 60px 50px 10px 50px;
+}
+
+/* 登録完了画面 */
+
+.clear {
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    display: block;
+    width: 310px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+    padding: 25px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 10%);
+    border-radius: 15px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 15px;
+}
+
+.welcome {
+    font-weight: bold;
+    font-size: large;
+    margin: 20px 0 30px 0;
+    line-height: 20px;
+}
+
+
+.login-btn2 {
+    margin: 20px;
 }

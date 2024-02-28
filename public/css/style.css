@@ -117,7 +117,9 @@ img.profile-image {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
     text-align: right;
+    height: 800px;
 }
+
 
 #confirm {
     /* text-align: left; */
@@ -224,8 +226,10 @@ div.b-color1 {
     margin-bottom: 10px;
 }
 
+
+
 .edit-container {
-    top: -500px;
+    top: -550px;
     right: -236px;
     width: 660px;
     height: 270px;
@@ -233,6 +237,31 @@ div.b-color1 {
     border-radius: 10px;
     position: relative;
     visibility: hidden;
+    z-index: 2;
+}
+
+
+
+.modal-bg {
+    display: none;
+}
+
+
+.modal-bg.active {
+    background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+
+
+
+.modal__content {
+    position: fixed;
+    z-index: 3;
 }
 
 .edit-container.active {
@@ -281,7 +310,7 @@ button img {
     background: #ffffff;
     left: 30px;
     padding: 30px;
-    margin: 10px 30px 20px 30px;
+    margin: 20px 30px 20px 30px;
 }
 
 .edit-close {

@@ -23,11 +23,11 @@
   <!--OGPタグ/twitterカード-->
 </head>
 <body>
-  <header>
+  <div id="container">
+    <!-- <header>
     <h1><a href="/top"><img src="images/atlas.png" class="atlas-logo" ></a></h1>
     <p class="phrase">Social Network Service</p>
-  </header>
-  <div id="container">
+    </header> -->
     @yield('content')
   </div>
   <script src="JavaScriptファイルのURL"></script>

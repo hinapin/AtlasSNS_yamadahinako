@@ -40,15 +40,21 @@ $(function () {
   close.on('click', function () {
     container.removeClass('active');
   });
+
 });
 
+$(function () {
+  $('.edit-btn').click(function () {
+    $('.modal-bg').toggleClass('active');
+  });
+});
 
 
 $(function () {
 
   // 編集ボタンを押したら中身が現れる
   $('.edit-btn').on('click', function () {
-    $('.modal__content').fadeIn();
+    $('.modal__content',).fadeIn();
 
     // 押されたボタンから投稿内容を取得し変数へ格納
     var post = $(this).attr('post');

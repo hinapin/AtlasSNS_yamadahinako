@@ -33,7 +33,13 @@
                     <li><a class="accordion-menu accordion-profile" href="{{URL::to('/profile')}}">プロフィール編集</a></li>
                     <li><a class="accordion-menu"  href="{{URL::to('/logout')}}">ログアウト</a></li>
                 </ul>
-            <div><img src="{{ asset('storage/'.Auth::user()->images) }}" class="profile-image menu-list"></div>
+            <div>
+                @if(Auth::user()->images == "icon1.png")
+                <img src="{{ asset('/images/icon1.png')}}" class="profile-image menu-list">
+                @else
+                <img src="{{ asset('storage/'.Auth::user()->images) }}" class="profile-image menu-list">
+                @endif
+            </div>
         </div>
             <!-- ★ -->
     </header>
@@ -45,7 +51,7 @@
 
         <div id="side-bar">
             <div id="confirm">
-                <p class="follow-count">{{  Auth::user()->username }}さんの</p>
+                <p class="follow-count">{{ Auth::user()->username }}さんの</p>
                 <div class="follow-count">
                 <p>フォロー数</p>
                 <p>{{ Auth::user()->follows()->count() }}名</p>

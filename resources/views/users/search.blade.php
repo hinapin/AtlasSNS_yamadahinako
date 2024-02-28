@@ -25,9 +25,15 @@
     @foreach($users as $users)
     <div class="user-list">
     @if(!($user->username == $users->username))
+
     <!-- 自分以外のユーザーの表示 -->
     <div class="search-member">
+      @if($users->images == "icon1.png")
+        <div><img src="{{ asset('/images/icon1.png')}}" class="profile-image"></div>
+      @else
         <div><img src="{{ asset('storage/'.$users->images)}}" alt="ユーザーアイコン" width="50px" height="50px"></div>
+      @endif
+
         <div>{{$users->username}}</div>
 
         <!-- フォローボタン -->

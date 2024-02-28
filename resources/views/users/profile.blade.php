@@ -17,7 +17,8 @@
 
   <div class="my-update">
 
-      <img src="{{ asset('storage/'.Auth::user()->images) }}" class="update-icon">
+    <img src="{{ asset('storage/'.Auth::user()->images) }}" class="profile-image menu-list">
+
 
     {!! Form::open(['url' => '/profile/update' ,'enctype'=> 'multipart/form-data']) !!}
 

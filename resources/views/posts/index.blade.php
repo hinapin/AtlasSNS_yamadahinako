@@ -5,11 +5,12 @@
 {!! Form::open(['url' => '/top']) !!}
 {{ Form::token()}}
 <div class="form-container">
-
-  <img src="{{ asset('storage/'.Auth::user()->images) }}" class="profile-image">
-
+  @if(Auth::user()->images == "icon1.png")
+  <img src="/images/icon1.png" class="profile-image">
+  @else
+  <img src="{{ asset('storage/'.Auth::user()->images) }}" class="profile-image menu-list">
+  @endif
   {{ Form::text('new-post',null,['required', 'class' => 'post-form', 'placeholder' => '投稿内容を入力してください。']) }}
-
   <button type="submit" class="submit-btn"><img src="images/post.png"></button>
 
 </div>
@@ -62,16 +63,17 @@
 </div>
 
 <!-- 更新用モーダル-->
-<div class="edit-container">
-  <div class="modal__bg edit-close"></div>
-  <div class="modal__content">
-    <form action="/post/update" method="post">
-      <textarea name="upPost" class="modal_post"></textarea>
-      <input type="hidden" name="id" class="modal_id" value="">
-      <button type="submit" class="edit-close"><img src="images/edit.png"></button>
-      {{ csrf_field() }}
-    </form>
+  <div class="modal-bg"></div>
+  <div class="edit-container">
+    <div class="modal__content">
+      <form action="/post/update" method="post">
+        <textarea name="upPost" class="modal_post"></textarea>
+        <input type="hidden" name="id" class="modal_id" value="">
+        <button type="submit" class="edit-close"><img src="images/edit.png"></button>
+        {{ csrf_field() }}
+      </form>
+    </div>
+    <div class="modal__bg edit-close"></div>
   </div>
-</div>
 
 @endsection
