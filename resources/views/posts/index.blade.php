@@ -63,8 +63,8 @@
 </div>
 
 <!-- 更新用モーダル-->
-  <div class="modal-bg"></div>
   <div class="edit-container">
+    <div class="modal-bg"></div>
     <div class="modal__content">
       <form action="/post/update" method="post">
         <textarea name="upPost" class="modal_post"></textarea>
