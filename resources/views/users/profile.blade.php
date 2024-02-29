@@ -16,8 +16,11 @@
   @endif
 
   <div class="my-update">
-
+    @if(Auth::user()->images == "icon1.png")
+    <img src="/images/icon1.png" class="profile-image">
+    @else
     <img src="{{ asset('storage/'.Auth::user()->images) }}" class="profile-image menu-list">
+    @endif
 
 
     {!! Form::open(['url' => '/profile/update' ,'enctype'=> 'multipart/form-data']) !!}

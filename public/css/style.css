@@ -229,25 +229,22 @@ div.b-color1 {
 
 
 .edit-container {
-    top: -550px;
-    right: -236px;
+    top: 280px;
+    right: 320px;
     width: 660px;
     height: 270px;
     background-color: #ffffff;
     border-radius: 10px;
-    position: relative;
+    position: fixed;
     visibility: hidden;
     z-index: 2;
 }
 
 
 
-.modal-bg {
-    display: none;
-}
+.modal-bg {}
 
-
-.modal-bg.active {
+.one {
     background: rgba(0, 0, 0, 0.4);
     position: fixed;
     top: 0;
@@ -267,6 +264,7 @@ div.b-color1 {
 .edit-container.active {
     opacity: 1;
     visibility: visible;
+
 }
 
 button {

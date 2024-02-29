@@ -6,9 +6,9 @@
 {{ Form::token()}}
 <div class="form-container">
   @if(Auth::user()->images == "icon1.png")
-  <img src="/images/icon1.png" class="profile-image">
+    <img src="/images/icon1.png" class="profile-image">
   @else
-  <img src="{{ asset('storage/'.Auth::user()->images) }}" class="profile-image menu-list">
+    <img src="{{ asset('storage/'.Auth::user()->images)}}" class="profile-image menu-list">
   @endif
   {{ Form::text('new-post',null,['required', 'class' => 'post-form', 'placeholder' => '投稿内容を入力してください。']) }}
   <button type="submit" class="submit-btn"><img src="images/post.png"></button>
@@ -16,9 +16,6 @@
 </div>
 
 <div class="b-color"></div>
-
-
-
 
 {!! Form::close() !!}
 
@@ -30,11 +27,18 @@
     <tr>
       <div class="contents">
         <div class="contents1">
-          <div><img src="{{asset('storage/'.$list->user->images)}}" class="profile-image"></div>
+          @if($list->images == "icon1.png")
+            <img src="/images/icon1.png" class="profile-image">
+          @else
+            <img src="{{ asset('storage/'.$list->images)}}" class="profile-image menu-list">
+          @endif
+
           <div class="content">
               <div class="post-user"><td>{{ $list->user->username }}</td><br></div>
               <div class="v-post"><td>{{ $list->post }}</td><br></div>
           </div>
+
+
           <div class="create-time"><td>{{ $list->created_at }}</td><br></div>
           <!-- <td>{{ $list->user_id }}</td><br> -->
         </div>
@@ -62,9 +66,11 @@
   @endforeach
 </div>
 
+
 <!-- 更新用モーダル-->
+  <div class="modal-bg"></div>
+
   <div class="edit-container">
-    <div class="modal-bg"></div>
     <div class="modal__content">
       <form action="/post/update" method="post">
         <textarea name="upPost" class="modal_post"></textarea>

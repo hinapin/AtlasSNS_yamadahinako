@@ -43,9 +43,10 @@ $(function () {
 
 });
 
+
 $(function () {
-  $('.edit-btn').click(function () {
-    $('.modal-bg').toggleClass('active');
+  $('.edit-btn').on('click', function () {
+    $('.modal-bg').toggleClass('one');
   });
 });
 
