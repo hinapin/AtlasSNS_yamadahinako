@@ -5,7 +5,12 @@
 
 
 <div class="form-container">
-  <div><img src="{{ asset('storage/'.$users->images)}}" class="profile-image"></div>
+    @if($users->images == "icon1.png")
+    <img src="/images/icon1.png" class="profile-image">
+    @else
+      <img src="{{ asset('storage/'.$users->images)}}" class="profile-image menu-list">
+    @endif
+  <!-- <div><img src="{{ asset('storage/'.$users->images)}}" class="profile-image"></div> -->
   <div class="name-bio">
     <div class="introduction">
       <div class="profile-item">name</div>
@@ -41,7 +46,12 @@
   <tr>
     <div class="contents">
       <div class="contents1">
-          <div><img src="{{ asset('storage/'.$users->images)}}" class="profile-image"></div>
+        @if($users->images == "icon1.png")
+        <img src="/images/icon1.png" class="profile-image">
+        @else
+          <img src="{{ asset('storage/'.$users->images)}}" class="profile-image menu-list">
+        @endif
+          <!-- <div><img src="{{ asset('storage/'.$users->images)}}" class="profile-image"></div> -->
           <div class="content">
             <div class="post-user"><td>{{ $users->username }}</td><br></div>
             <div class="v-post"><td>{{ $post->post }}</td><br></div>
