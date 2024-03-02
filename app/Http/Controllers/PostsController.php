@@ -16,7 +16,9 @@ class PostsController extends Controller
     public function index(Request $request){
          $list = Auth::user();
         // $list = Post::get(); // Postテーブルから情報を拾う
-         $list = Post::orderBy('created_at','desc')->get();  //  登録された順に並び替えて取り出す
+         $list = Post::with("user")->orderBy('created_at','desc')->get();  //  登録された順に並び替えて取り出す
+        //  dd($list);
+
          $user_id = Auth::id();
 
         // 値をbladeに受け渡す記述

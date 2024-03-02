@@ -27,14 +27,12 @@
     <tr>
       <div class="contents">
         <div class="contents1">
-          @if($list->images == "icon1.png")
-            <img src="/images/icon1.png" class="profile-image">
-          @else
-            <img src="{{ asset('storage/'.$list->images)}}" class="profile-image menu-list">
-          @endif
+
+          <div><img src="{{ asset('storage/'.$list->user->images)}}" class="profile-image"></div>
+
 
           <div class="content">
-              <div class="post-user"><td>{{ $list->user->username }}</td><br></div>
+              <div class="post-user"><td>{{ $list->user->username}}</td></div>
               <div class="v-post"><td>{{ $list->post }}</td><br></div>
           </div>
 

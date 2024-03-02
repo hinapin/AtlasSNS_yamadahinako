@@ -33,7 +33,7 @@ class User extends Authenticatable
     // Postテーブルとリレーション　（繋げてあげる）
 
     public function post(){
-        return $this ->belongsToMany('App\Post');
+        return $this ->hasMany('App\Post');
     }
 
 
