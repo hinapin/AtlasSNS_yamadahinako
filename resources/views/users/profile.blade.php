@@ -16,6 +16,8 @@
   @endif
 
   <div class="my-update">
+
+
     @if(Auth::user()->images == "icon1.png")
     <img src="/images/icon1.png" class="profile-image">
     @else
@@ -29,12 +31,12 @@
         <!-- ユーザー名 -->
         <div class="update-list">
         {{ Form::label('user name') }}
-        {{ Form::text('username',null,['class' => 'input' , 'placeholder' => Auth::user()->username]) }}
+        {{ Form::text('username', Auth::user()->username,['class' => 'input']) }}
         </div>
       <!-- メールアドレス -->
         <div class="update-list">
         {{ Form::label('mail adress') }}
-        {{ Form::text('mail',null,['class' => 'input' , 'placeholder' => Auth::user()->mail]) }}
+        {{ Form::text('mail', Auth::user()->mail,['class' => 'input']) }}
         </div>
       <!-- パスワード -->
         <div class="update-list">

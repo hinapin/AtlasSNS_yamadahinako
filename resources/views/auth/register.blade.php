@@ -15,7 +15,18 @@
     <p class="phrase-r">Social Network Service</p>
 </header>
 
+
+
 <div class="register-page">
+  @if ($errors->any())
+  <div class="errors">
+    <ul>
+      @foreach ($errors->all() as $error)
+      <li class="errors-massage">{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+  @endif
   <h2 class="register-inf">新規ユーザー登録</h2>
   <div Class="register-list">
   {{ Form::label('user name') }}
@@ -38,16 +49,6 @@
   <p><a class="back-login" href="/login">ログイン画面へ戻る</a></p>
 
 </div>
-
-@if ($errors->any())
-  <div>
-    <ul>
-      @foreach ($errors->all() as $error)
-      <li>{{ $error }}</li>
-      @endforeach
-    </ul>
-  </div>
-@endif
 
 {!! Form::close() !!}
 
