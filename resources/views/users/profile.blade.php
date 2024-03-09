@@ -51,7 +51,7 @@
       <!-- 自己紹介 -->
         <div class="update-list">
         {{ Form::label('bio') }}
-        {{ Form::text('bio',null,['class' => 'input' , 'placeholder' => Auth::user()->bio]) }}
+        {{ Form::text('bio',Auth::user()->bio,['class' => 'input']) }}
         </div>
       <!-- アイコン画像のアップロード -->
         <div class="update-list">
